@@ -1,39 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Tzolkin from "./Tzolkin";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const date = new Date();
 
+  // date.setDate(25);
   return (
     <>
+      <h1>일기장</h1>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        {date.getFullYear()}년 {date.getMonth() + 1}월 {date.getDate()}일
+        <br />
+        <Tzolkin date={date} />
       </div>
       <div>
-        <button onClick={()=> setCount(0)}>리셋</button>
+        <textarea
+          placeholder="오늘의 일기를 적어 봅시다."
+          rows={10}
+          cols={50}
+        />
+        <br />
+        <button title="저장">kkkkkk</button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-        집에가고싶다~~
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
